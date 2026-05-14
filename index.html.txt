@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Psicólogo Rafael Dutra</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Libre Baskerville', serif;
+      background: #0a0a0a;
+      color: #f5f5f5;
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      background: rgba(10,10,10,0.9);
+      border-bottom: 1px solid #1f1f1f;
+      z-index: 999;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .logo h1 {
+      font-size: 2rem;
+      font-weight: 400;
+    }
+
+    .logo span {
+      color: #777;
+      letter-spacing: 4px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      margin-left: 30px;
+      color: #aaa;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .hero {
+      padding: 100px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      border: 1px solid #333;
+      padding: 10px 18px;
+      border-radius: 999px;
+      color: #bbb;
+      margin-bottom: 25px;
+      font-size: 0.9rem;
+    }
+
+    .hero h2 {
+      font-size: 4rem;
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 15px;
+    }
+
+    .hero .sub {
+      color: #777;
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      margin-bottom: 30px;
+      display: block;
+    }
+
+    .hero p {
+      color: #b0b0b0;
+      font-size: 1.1rem;
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 28px;
+      border-radius: 18px;
+      transition: 0.3s;
+      font-size: 1rem;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: white;
+      color: black;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid #444;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: #1a1a1a;
+    }
+
+    .hero img,
+    .section img {
+      width: 100%;
+      border-radius: 30px;
+      object-fit: cover;
+    }
+
+    section {
+      padding: 100px 0;
+      border-top: 1px solid #1a1a1a;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .section-title {
+      color: #777;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+    }
+
+    .section h3 {
+      font-size: 2.7rem;
+      font-weight: 400;
+      margin-bottom: 30px;
+    }
+
+    .section p {
+      color: #b0b0b0;
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 50px;
+    }
+
+    .card {
+      border: 1px solid #222;
+      padding: 35px;
+      border-radius: 30px;
+      background: #101010;
+    }
+
+    .card h4 {
+      margin-bottom: 18px;
+      font-size: 1.3rem;
+      font-weight: 400;
+    }
+
+    .card p {
+      color: #aaa;
+    }
+
+    form {
+      background: #111;
+      padding: 40px;
+      border-radius: 30px;
+      border: 1px solid #222;
+    }
+
+    form input {
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid #333;
+      background: #0a0a0a;
+      color: white;
+      font-family: inherit;
+    }
+
+    form button {
+      width: 100%;
+      padding: 18px;
+      border-radius: 18px;
+      border: none;
+      background: white;
+      color: black;
+      font-family: inherit;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid #1a1a1a;
+      color: #666;
+    }
+
+    @media(max-width: 900px) {
+      .hero,
+      .section-grid,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h2 {
+        font-size: 2.8rem;
+      }
+
+      nav {
+        display: none;
+      }
+
+      section,
+      .hero {
+        padding: 70px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <h1>Rafael Dutra</h1>
+      <span>Psicólogo</span>
+    </div>
+
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container hero">
+  <div>
+    <div class="badge">
+      Psicólogo online em Apiúna - SC • Atendimento para todo o Brasil
+    </div>
+
+    <h2>Rafael Cavalheiro Dutra</h2>
+    <span class="sub">Psicólogo</span>
+
+    <p>
+      Atendimento clínico online com escuta humanizada, fundamentação psicanalítica e experiência em saúde mental no CAPS.
+      Atendimento infantil, infanto-juvenil e adulto.
+    </p>
+
+    <div class="buttons">
+      <a class="btn btn-primary" href="#contato">Agendar Consulta</a>
+      <a class="btn btn-outline" target="_blank" href="https://www.instagram.com/psi_rafaeldutra/">Instagram</a>
+    </div>
+  </div>
+
+  <div>
+    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop" alt="Psicólogo Rafael Dutra">
+  </div>
+</div>
+
+<section id="sobre" class="section">
+  <div class="container section-grid">
+    <div>
+      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop" alt="Atendimento psicológico">
+    </div>
+
+    <div>
+      <div class="section-title">Sobre</div>
+
+      <h3>Escuta clínica, saúde mental e humanização do cuidado.</h3>
+
+      <p>
+        Meu trabalho clínico é orientado pela psicanálise e pela compreensão singular de cada sujeito, respeitando sua história, seus conflitos e sua forma própria de existir.
+      </p>
+
+      <p>
+        Atualmente atuo no CAPS, acompanhando casos complexos em saúde mental, experiência que fortalece meu olhar clínico, minha escuta e a construção de um cuidado ético e humanizado.
+      </p>
+
+      <p>
+        O atendimento online oferece praticidade, acessibilidade e conforto, possibilitando um espaço de acolhimento e reflexão mesmo à distância.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="servicos" class="section">
+  <div class="container">
+    <div class="section-title">Serviços</div>
+
+    <h3>Atendimento psicológico online</h3>
+
+    <div class="cards">
+      <div class="card">
+        <h4>Psicoterapia Online</h4>
+        <p>
+          Atendimento individual realizado por videochamada, voltado para ansiedade, sofrimento emocional e saúde mental.
+        </p>
+      </div>
+
+      <div class="card">
+        <h4>Escuta Humanizada</h4>
+        <p>
+          Um espaço de fala construído a partir da singularidade de cada pessoa.
+        </p>
+      </div>
+
+      <div class="card">
+        <h4>Flexibilidade</h4>
+        <p>
+          Atendimento online com conforto, praticidade e privacidade.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contato" class="section">
+  <div class="container section-grid">
+    <div>
+      <div class="section-title">Contato</div>
+
+      <h3>Entre em contato para agendar sua consulta.</h3>
+
+      <p>
+        WhatsApp: (54) 99162-9794
+      </p>
+
+      <p>
+        CRP 12/30926
+      </p>
+    </div>
+
+    <form id="formulario">
+      <input type="text" id="nome" placeholder="Nome" required>
+      <input type="number" id="idade" placeholder="Idade" required>
+      <input type="text" id="cidade" placeholder="Cidade" required>
+      <input type="text" id="contatoInput" placeholder="Contato" required>
+
+      <button type="submit">Solicitar contato</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  Psicólogo Rafael Dutra • Atendimento Online • CRP 12/30926
+</footer>
+
+<script>
+  document.getElementById('formulario').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const nome = document.getElementById('nome').value;
+    const idade = document.getElementById('idade').value;
+    const cidade = document.getElementById('cidade').value;
+    const contato = document.getElementById('contatoInput').value;
+
+    const mensagem = `Olá Rafael, gostaria de solicitar um atendimento.\n\nNome: ${nome}\nIdade: ${idade}\nCidade: ${cidade}\nContato: ${contato}`;
+
+    const url = `https://wa.me/5554991629794?text=${encodeURIComponent(mensagem)}`;
+
+    window.open(url, '_blank');
+  });
+</script>
+
+</body>
+</html>
