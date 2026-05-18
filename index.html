@@ -1,166 +1,544 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Psicologia - Atendimento</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rafael Dutra | Psicólogo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
-    header {
-      background-color: #2c3e50;
-      color: white;
-      padding: 20px;
-      text-align: center;
+    body {
+      font-family: 'Libre Baskerville', serif;
+      background: #0b0b0b;
+      color: #f5f5f5;
+      line-height: 1.8;
+      overflow-x: hidden;
     }
 
-    nav {
-      background-color: #34495e;
-      padding: 10px;
-      text-align: center;
-    }
-
-    nav a {
-      color: white;
-      margin: 0 15px;
+    a {
       text-decoration: none;
-      font-weight: bold;
+      color: inherit;
     }
 
-    section {
-      padding: 40px 20px;
-      max-width: 900px;
+    img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
       margin: auto;
     }
 
-    h2 {
-      color: #2c3e50;
-      margin-bottom: 15px;
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(12px);
+      background: rgba(11,11,11,0.88);
+      border-bottom: 1px solid #1d1d1d;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+    }
+
+    .logo h1 {
+      font-size: 2rem;
+      font-weight: 400;
+      color: white;
+      line-height: 1;
+    }
+
+    .logo span {
+      display: block;
+      margin-top: 8px;
+      color: #777;
+      font-size: 0.8rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      gap: 35px;
+    }
+
+    nav a {
+      color: #9c9c9c;
+      transition: 0.3s;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: white;
     }
 
     .hero {
-      background: #ecf0f1;
-      text-align: center;
-      padding: 60px 20px;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 70px;
+      padding: 80px 0;
     }
 
-    .services {
+    .badge {
+      display: inline-block;
+      border: 1px solid #2d2d2d;
+      padding: 12px 20px;
+      border-radius: 999px;
+      color: #b5b5b5;
+      margin-bottom: 30px;
+      font-size: 0.9rem;
+    }
+
+    .hero h2 {
+      font-size: 5rem;
+      font-weight: 400;
+      line-height: 1.05;
+      margin-bottom: 20px;
+      max-width: 650px;
+    }
+
+    .hero .sub {
+      color: #777;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      margin-bottom: 35px;
+      display: block;
+    }
+
+    .hero p {
+      color: #b5b5b5;
+      font-size: 1.1rem;
+      max-width: 620px;
+      margin-bottom: 40px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 16px 30px;
+      border-radius: 20px;
+      transition: 0.3s;
+      display: inline-block;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: white;
+      color: black;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      border: 1px solid #333;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: #1a1a1a;
+    }
+
+    .hero-image img {
+      border-radius: 38px;
+      height: 780px;
+    }
+
+    section {
+      padding: 120px 0;
+      border-top: 1px solid #1a1a1a;
+    }
+
+    .section-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .section-tag {
+      color: #666;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      margin-bottom: 25px;
+    }
+
+    .section h3 {
+      font-size: 3rem;
+      font-weight: 400;
+      margin-bottom: 35px;
+      line-height: 1.2;
+    }
+
+    .section p {
+      color: #b5b5b5;
+      margin-bottom: 22px;
+      font-size: 1.05rem;
+    }
+
+    .section-image img {
+      border-radius: 36px;
+      height: 680px;
+    }
+
+    .services-box {
+      margin-top: 60px;
+      background: #111;
+      border: 1px solid #1f1f1f;
+      border-radius: 36px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .services-content {
+      padding: 60px;
+    }
+
+    .services-content h4 {
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: 25px;
+    }
+
+    .services-content p {
+      color: #b5b5b5;
+    }
+
+    .services-image img {
+      height: 100%;
+    }
+
+    .cards {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 25px;
     }
 
     .card {
-      background: #f7f7f7;
-      padding: 20px;
-      border-radius: 10px;
+      background: #111;
+      border: 1px solid #1d1d1d;
+      border-radius: 30px;
+      padding: 40px;
+    }
+
+    .card h5 {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+
+    .card p {
+      color: #aaa;
+      font-size: 1rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+    }
+
+    .contact-links a {
+      display: block;
+      padding: 22px;
+      border: 1px solid #222;
+      border-radius: 24px;
+      margin-bottom: 18px;
+      transition: 0.3s;
+    }
+
+    .contact-links a:hover {
+      background: #151515;
+    }
+
+    form {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 34px;
+      padding: 45px;
+    }
+
+    form input {
+      width: 100%;
+      padding: 18px;
+      margin-bottom: 20px;
+      border-radius: 18px;
+      border: 1px solid #333;
+      background: #0b0b0b;
+      color: white;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    form button {
+      width: 100%;
+      border: none;
+      background: white;
+      color: black;
+      padding: 18px;
+      border-radius: 20px;
+      font-family: inherit;
+      font-size: 1rem;
+      cursor: pointer;
     }
 
     footer {
-      background-color: #2c3e50;
-      color: white;
       text-align: center;
-      padding: 15px;
-      margin-top: 40px;
+      padding: 50px 20px;
+      color: #666;
+      border-top: 1px solid #1a1a1a;
     }
 
-    .cta {
-      background-color: #27ae60;
-      color: white;
-      padding: 12px 20px;
-      display: inline-block;
-      border-radius: 6px;
-      text-decoration: none;
-      margin-top: 10px;
+    @media(max-width: 980px) {
+      .hero,
+      .section-grid,
+      .services-box,
+      .cards,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 60px 0;
+      }
+
+      .hero h2 {
+        font-size: 3rem;
+      }
+
+      .section h3 {
+        font-size: 2.3rem;
+      }
+
+      .hero-image img,
+      .section-image img {
+        height: auto;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .services-content,
+      form,
+      .card {
+        padding: 30px;
+      }
     }
   </style>
 </head>
-
 <body>
 
-  <header>
-    <h1>Psicologia e Psicoterapia</h1>
-    <p>Espaço de escuta, acolhimento e cuidado psicológico</p>
-  </header>
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <h1>Rafael Dutra</h1>
+      <span>Psicólogo</span>
+    </div>
 
-  <nav>
-    <a href="#sobre">Sobre</a>
-    <a href="#servicos">Serviços</a>
-    <a href="#atendimento">Atendimento</a>
-    <a href="#contato">Contato</a>
-  </nav>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </div>
+</header>
 
-  <div class="hero">
-    <h2>Bem-vindo</h2>
-    <p>Um espaço seguro para cuidado emocional e desenvolvimento pessoal.</p>
+<div class="container hero">
+  <div>
+    <div class="badge">
+      Psicólogo online em Apiúna - SC • Atendimento para todo o Brasil
+    </div>
+
+    <h2>Rafael Cavalheiro Dutra</h2>
+    <span class="sub">Psicólogo</span>
+
+    <p>
+      Atendimento clínico online com escuta humanizada, fundamentação psicanalítica e experiência em saúde mental no CAPS. Atendimento infantil, infanto-juvenil e adulto.
+    </p>
+
+    <div class="buttons">
+      <a class="btn btn-primary" href="#contato">Agendar Consulta</a>
+      <a class="btn btn-outline" href="https://www.instagram.com/psi_rafaeldutra/" target="_blank">Instagram</a>
+    </div>
   </div>
 
-  <section id="sobre">
-    <h2>Sobre o trabalho</h2>
-    <p>
-      O trabalho psicológico é baseado em escuta qualificada, ética e respeito à singularidade de cada pessoa.
-      O objetivo é promover saúde mental, autonomia e bem-estar emocional.
-    </p>
-  </section>
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop" alt="Rafael Dutra">
+  </div>
+</div>
 
-  <section id="servicos">
-    <h2>Serviços</h2>
+<section id="sobre" class="section">
+  <div class="container section-grid">
+    <div class="section-image">
+      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop" alt="Atendimento psicológico">
+    </div>
 
-    <div class="services">
-      <div class="card">
-        <h3>Psicoterapia Individual</h3>
-        <p>Atendimento voltado às demandas emocionais e pessoais do paciente.</p>
+    <div>
+      <div class="section-tag">Sobre</div>
+
+      <h3>Escuta clínica, saúde mental e humanização do cuidado.</h3>
+
+      <p>
+        Meu trabalho clínico é orientado pela psicanálise e pela compreensão singular de cada sujeito, respeitando sua história, seus conflitos e sua forma própria de existir.
+      </p>
+
+      <p>
+        Atualmente atuo no CAPS, acompanhando casos complexos em saúde mental, experiência que fortalece meu olhar clínico, minha escuta e a construção de um cuidado ético e humanizado.
+      </p>
+
+      <p>
+        O atendimento online oferece praticidade, acessibilidade e conforto, possibilitando um espaço de acolhimento e reflexão mesmo à distância.
+      </p>
+
+      <p>
+        Durante sua trajetória acadêmica, foi escolhido como orador da área da saúde em sua cerimônia de formatura.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="servicos" class="section">
+  <div class="container">
+    <div class="section-tag">Serviços</div>
+
+    <h3>Atendimento psicológico online</h3>
+
+    <div class="services-box">
+      <div class="services-content">
+        <div class="section-tag">Atendimento Personalizado</div>
+
+        <h4>Infantil, infanto-juvenil e adulto.</h4>
+
+        <p>
+          Cada fase da vida possui suas próprias formas de sofrimento, expressão emocional e construção subjetiva. O atendimento é realizado de maneira personalizada, respeitando a singularidade de cada paciente.
+        </p>
       </div>
 
-      <div class="card">
-        <h3>Escuta Clínica</h3>
-        <p>Espaço de acolhimento para expressão livre e elaboração de conflitos.</p>
-      </div>
-
-      <div class="card">
-        <h3>Acompanhamento Psicológico</h3>
-        <p>Processo contínuo de cuidado e desenvolvimento emocional.</p>
+      <div class="services-image">
+        <img src="https://images.unsplash.com/photo-1516534775068-ba3e7458af70?q=80&w=1200&auto=format&fit=crop" alt="Atendimento psicológico">
       </div>
     </div>
-  </section>
 
-  <section id="atendimento">
-    <h2>Atendimento Personalizado</h2>
+    <div class="cards">
+      <div class="card">
+        <h5>Psicoterapia Online</h5>
+        <p>
+          Atendimento individual realizado por videochamada, voltado para ansiedade, sofrimento emocional e saúde mental.
+        </p>
+      </div>
 
-    <p>
-      O atendimento é pensado de forma individualizada, respeitando a singularidade de cada pessoa,
-      sua história e suas demandas.
-    </p>
+      <div class="card">
+        <h5>Escuta Humanizada</h5>
+        <p>
+          Um espaço de fala construído a partir da singularidade de cada pessoa.
+        </p>
+      </div>
 
-    <p>
-      O processo terapêutico é construído em conjunto, com escuta qualificada, acolhimento e
-      intervenções alinhadas às necessidades do paciente.
-    </p>
+      <div class="card">
+        <h5>Flexibilidade e Praticidade</h5>
+        <p>
+          Atendimento online com conforto, acessibilidade e privacidade.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <ul>
-      <li>Atendimento psicológico individual</li>
-      <li>Escuta qualificada e sigilosa</li>
-      <li>Abordagem centrada na pessoa</li>
-      <li>Plano terapêutico personalizado</li>
-    </ul>
-  </section>
+<section id="contato" class="section">
+  <div class="container contact-grid">
+    <div>
+      <div class="section-tag">Contato</div>
 
-  <section id="contato">
-    <h2>Contato</h2>
-    <p>Entre em contato para agendar uma consulta.</p>
+      <h3>Entre em contato para agendar sua consulta.</h3>
 
-    <a class="cta" href="#">Falar no WhatsApp</a>
-  </section>
+      <p style="color:#b5b5b5; margin-bottom:35px;">
+        O primeiro contato pode ser realizado pelo formulário abaixo ou diretamente pelo WhatsApp.
+      </p>
 
-  <footer>
-    <p>© 2026 - Psicologia e Psicoterapia</p>
-  </footer>
+      <div class="contact-links">
+        <a href="https://wa.me/5554991629794" target="_blank">
+          WhatsApp • (54) 99162-9794
+        </a>
+
+        <a href="https://www.instagram.com/psi_rafaeldutra/" target="_blank">
+          Instagram • @psi_rafaeldutra
+        </a>
+
+        <a>
+          CRP 12/30926
+        </a>
+      </div>
+    </div>
+
+    <form id="formulario">
+      <input type="text" id="nome" placeholder="Nome" required>
+      <input type="number" id="idade" placeholder="Idade" required>
+      <input type="text" id="cidade" placeholder="Cidade" required>
+      <input type="text" id="contatoInput" placeholder="Contato" required>
+
+      <button type="submit">Solicitar contato</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  Rafael Dutra • Psicólogo • Atendimento Online • CRP 12/30926
+</footer>
+
+<script>
+  document.getElementById('formulario').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const nome = document.getElementById('nome').value;
+    const idade = document.getElementById('idade').value;
+    const cidade = document.getElementById('cidade').value;
+    const contato = document.getElementById('contatoInput').value;
+
+    const mensagem = `Olá Rafael, gostaria de solicitar um atendimento.
+
+Nome: ${nome}
+Idade: ${idade}
+Cidade: ${cidade}
+Contato: ${contato}`;
+
+    const url = `https://wa.me/5554991629794?text=${encodeURIComponent(mensagem)}`;
+
+    window.open(url, '_blank');
+  });
+</script>
 
 </body>
 </html>
